@@ -6,3 +6,164 @@ Restricciones tecnicas:
 - El sitio debe ser visualmente prolijo, coherente y responsive en las secciones indicadas
 
 hagamos esto por etapas
+
+-
+
+Integraremos estas imagenes que se encuentran dentro de ésta carpeta
+ C:\Users\Yamir Rojo\Downloads\doctor fotos
+
+-
+
+el botón solicitar turnos, debe rederigirse a turnos.html 
+
+en las tarjetas de médicos, debe incluir aparte de su especialidad una breve descripción o frase   
+
+
+al menos 3 datos destacados (ej. cantidad de especialidades, años de
+experiencia, pacientes atendidos) en index.html 
+
+Grid con al menos 6 especialidades disponibles (ej. Clinica General, Cardiologia, Pediatria,
+Ginecologia, Traumatologia, Neurologia).
+
+Cada especialidad debe mostrar un icono o imagen representativa, nombre y breve descripcion.
+Layout implementado con CSS Grid (minimo 3 columnas en pantallas grandes).
+
+arregla el bug de la imagén principal al lado del header saludplus y solicitar turno, ya que 
+la imagen está cortada y no se ve completamente el médico
+
+ añade validación más avanzada y notificación visual (toasts) tras enviar el formulario.
+
+ al solucionar el bug de imagen, ahora se ve un borde azul de cada lado de la imagen, solucionalo
+
+ ahora avanzaremos a la etapa 2
+
+vamos a desarrollar el formulario de solicitud de turno en el archivo turnos.html
+
+debe estar organizado y utilizar elementos semanticos
+
+Organiza el formulario en cuatro secciones utilizando fieldset y legend
+
+sec 1
+
+datos del paciente y los campos requeridos como, nombre, apellido, dni, correo electronico, telefono, fecha
+de nacimiento, genero
+
+sec 2
+
+datos del turno
+
+campos requeridos, especialidad, medico, medico por especialidad, tipo de consulta, fecha de turno, 
+hora del turno, plataforma preferida
+
+sec 3
+
+cobertura medica
+
+cobertura (osde, swiss medical, galeno, ioma, medicus, sancor salud, particular)
+
+numero credencial
+
+plan visible solo si la cobertura no es particular
+
+sec 4
+
+información adicional, tipo primera visita, como nos conocio, motivo de consulta, estudios previos
+descripción de estudios
+
+y añade botón de envio
+
+Comenzaremos con la etapa 3 - validaciones de JavaScript
+
+Implementa todas las validaciones del formulario en el archivo js/validaciones.js. Las validaciones deben
+ejecutarse al hacer submit del formulario e indicar visualmente el estado de cada campo mediante clases
+CSS.
+
+
+Define en turnos.css las siguientes clases y aplicalas desde JavaScript:
+-campo-error: borde rojo, fondo rojo muy claro. Indica que el campo tiene un error.
+-campo-ok: borde verde, fondo verde muy claro. Indica que el campo es valido.
+-mensaje-error: texto de error pequeno de color rojo, visible debajo del campo.
+esto para generar feedback visual
+
+añade un borde a la imagen principal y hazla más grande
+
+reglas de validación
+Datos del paciente
+-Nombre y Apellido: obligatorio, solo letras y espacios (incluye tildes y ene). Expresion regular
+sugerida: /^[a-zA-ZaeiouAEIOUuUnnNN\s]+$/
+-DNI: obligatorio, entre 7 y 8 digitos numericos.
+-email: obligatorio, formato valido (usar expresion regular).
+- Telefono: obligatorio, formato valido (puede contener +, guiones y espacios, minimo 8 digitos).
+- Fecha de nacimiento: obligatoria, no puede ser una fecha futura, la edad debe estar entre 0 y 120
+años.
+
+Seccion 2 - Datos del turno
+-Especialidad: obligatoria (no puede quedar en la opcion vacia inicial).
+-Medico: obligatorio una vez que la especialidad esta seleccionada. Las opciones del select deben
+actualizarse dinamicamente al cambiar la especialidad, usando un objeto JavaScript con los
+medicos de cada especialidad.
+-Tipo de consulta: obligatorio.
+-Fecha del turno: obligatoria, no puede ser una fecha pasada, debe tener al menos 24 horas de
+anticipacion desde el momento actual, y debe corresponder a un dia de semana (lunes a viernes;
+rechazar sabados y domingos).
+-Hora del turno: obligatoria, debe estar dentro del horario de atencion (08:00 a 20:00).
+-Modalidad: obligatoria.
+-Plataforma preferida: obligatoria si la modalidad es "Videoconsulta".
+
+
+------  no me está alcanzando el tiempo para reajustar los prompts -----
+
+
+Seccion 3 - Cobertura medica
+-Cobertura: obligatoria.
+-Numero de credencial: obligatorio si la cobertura NO es "Particular". Debe tener al menos 5
+caracteres alfanumericos.
+-Plan: obligatorio si la cobertura NO es "Particular".
+Seccion 4 - Informacion adicional
+-Como nos conocio: obligatorio si el checkbox de primera visita esta marcado.
+-Motivo de consulta: obligatorio, minimo 20 caracteres.
+-Descripcion de estudios: obligatoria si el checkbox de estudios previos esta marcado; minimo 20
+caracteres
+
+Comportamiento del formulario
+Campos condicionales
+Los siguientes campos deben mostrarse y ocultarse dinamicamente mediante JavaScript (modificando
+display: none / display: block):
+-Medico: se habilita y actualiza sus opciones cuando el usuario selecciona una especialidad.
+-Plataforma preferida: se muestra solo cuando la modalidad seleccionada es "Videoconsulta".
+-Numero de credencial y Plan: se muestran cuando la cobertura es distinta de "Particular".
+-Como nos conocio: se muestra cuando el checkbox de primera visita esta marcado.
+-Descripcion de estudios: se muestra cuando el checkbox de estudios previos esta marcado.
+Manejo del submit
+-Usar preventDefault() para evitar el envio del formulario por defecto.
+-Recorrer todos los campos y aplicar campo-error o campo-ok segun corresponda.
+-Si existe al menos un error, usar element.scrollIntoView({ behavior: "smooth" }) para desplazarse al
+primer campo invalido.
+-Si todos los campos son validos, mostrar un mensaje de confirmacion en pantalla con un numero de
+turno generado con Math.random() (formato: TURN-XXXXX, donde X son digitos).
+-El mensaje de confirmacion debe incluir: nombre del paciente, especialidad, fecha y hora del turno,
+y el numero de turno generado.
+Objeto de medicos por especialidad
+
+
+Define en validaciones.js un objeto JavaScript con la siguiente estructura (completa con al menos 2 medicos
+por especialidad):
+
+const medicosPorEspecialidad = {
+ "clinica": ["Dr. Gomez, Carlos", "Dra. Lopez, Maria"],
+ "cardiologia": ["Dr. Perez, Juan", "Dra. Torres, Ana"],
+ "pediatria": ["Dra. Diaz, Laura", "Dr. Soto, Pablo"],
+ "ginecologia": ["Dra. Romero, Valeria", "Dra. Castro, Elena"],
+ "traumatologia": ["Dr. Ramos, Sergio", "Dr. Herrera, Diego"],
+ "neurologia": ["Dr. Molina, Andres", "Dra. Vargas, Cecilia"]
+};
+
+---- ahora solucionaré errores y mejoraré visual -----
+
+elimina el limite de 20 caracteres en el motivo de consulta dentro de solicitar turno
+
+muy incomodo
+
+mejora la UI de el solicitar turnos, se ve esteticamente mal como si fuera un excel
+
+lanzame un workflow pages porque me abre el html en pages pero no aparecen las imagenes.

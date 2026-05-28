@@ -144,6 +144,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
+    // Primera visita -> mostrar como nos conocio
+    const primeraVisita = document.getElementById('primera_visita');
+    const conocioRow = document.getElementById('conocio-row');
+    if(primeraVisita && conocioRow){
+      primeraVisita.addEventListener('change', (e)=>{
+        if(e.target.checked){ conocioRow.style.display = ''; conocioRow.querySelector('select').setAttribute('required',''); }
+        else { conocioRow.style.display = 'none'; conocioRow.querySelector('select').removeAttribute('required'); }
+      });
+    }
+
+    // Estudios previos -> mostrar descripcion
+    const estudiosPrev = document.getElementById('estudios_previos');
+    const estudiosRow = document.getElementById('estudios-row');
+    if(estudiosPrev && estudiosRow){
+      estudiosPrev.addEventListener('change', (e)=>{
+        if(e.target.checked){ estudiosRow.style.display = ''; estudiosRow.querySelector('textarea').setAttribute('required',''); }
+        else { estudiosRow.style.display = 'none'; estudiosRow.querySelector('textarea').removeAttribute('required'); }
+      });
+    }
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const submitBtn = form.querySelector('[type="submit"]');

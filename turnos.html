@@ -147,6 +147,38 @@
           </div>
         </fieldset>
 
+        <fieldset>
+          <legend>Información adicional</legend>
+          <div class="form-row">
+            <label for="primera_visita">
+              <input id="primera_visita" name="primera_visita" type="checkbox" /> Es la primera vez que consulta en SaludPlus
+            </label>
+          </div>
+          <div class="form-row" id="conocio-row" style="display:none">
+            <label for="como_nos_conocio">¿Cómo nos conoció?</label>
+            <select id="como_nos_conocio" name="como_nos_conocio">
+              <option value="">Seleccionar</option>
+              <option>Busqueda en internet</option>
+              <option>Recomendacion de un conocido</option>
+              <option>Redes sociales</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="motivo">Motivo de consulta</label>
+            <textarea id="motivo" name="motivo" rows="4" placeholder="Describa brevemente el motivo de la consulta" required></textarea>
+          </div>
+          <div class="form-row">
+            <label for="estudios_previos">
+              <input id="estudios_previos" name="estudios_previos" type="checkbox" /> Tiene estudios previos relacionados con la consulta
+            </label>
+          </div>
+          <div class="form-row" id="estudios-row" style="display:none">
+            <label for="descripcion_estudios">Descripción de estudios</label>
+            <textarea id="descripcion_estudios" name="descripcion_estudios" rows="3" placeholder="Describa los estudios (fechas, lugar, resultados)"></textarea>
+          </div>
+        </fieldset>
+
         <div class="form-actions">
           <button type="submit" class="btn primary">Solicitar Turno</button>
           <button type="reset" class="btn">Limpiar formulario</button>

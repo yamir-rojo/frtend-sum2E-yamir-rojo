@@ -166,7 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const submitBtn = form.querySelector('[type="submit"]');
-      const result = validateForm(form);
+      // Preferir validaciones desde js/validaciones.js
+      const validator = window.Validaciones && window.Validaciones.validateForm ? window.Validaciones.validateForm : validateForm;
+      const result = validator(form);
       if(!result.ok){
         if(status) status.textContent = 'Corrige los errores del formulario.';
         createToast('Corrige los errores del formulario.', 'error');

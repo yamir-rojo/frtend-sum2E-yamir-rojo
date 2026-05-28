@@ -159,7 +159,7 @@
 
     if(primera_visita){ if(!como_nos_conocio){ setFieldError(form.querySelector('[name="como_nos_conocio"]'), 'Por favor indique cómo nos conoció.'); ok = false; } else setFieldOk(form.querySelector('[name="como_nos_conocio"]')); }
 
-    if(!motivo || motivo.length < 20){ setFieldError(form.querySelector('[name="motivo"]'), 'El motivo de consulta debe tener al menos 20 caracteres.'); ok = false; } else setFieldOk(form.querySelector('[name="motivo"]'));
+    if(!motivo){ setFieldError(form.querySelector('[name="motivo"]'), 'El motivo de consulta es obligatorio.'); ok = false; } else setFieldOk(form.querySelector('[name="motivo"]'));
 
     if(estudios_previos){ if(!descripcion_estudios || descripcion_estudios.length < 20){ setFieldError(form.querySelector('[name="descripcion_estudios"]'), 'La descripción de estudios debe tener al menos 20 caracteres.'); ok = false; } else setFieldOk(form.querySelector('[name="descripcion_estudios"]')); }
 

@@ -122,6 +122,31 @@
           </div>
         </fieldset>
 
+        <fieldset>
+          <legend>Cobertura médica</legend>
+          <div class="form-row">
+            <label for="cobertura">Cobertura</label>
+            <select id="cobertura" name="cobertura" required>
+              <option value="">Seleccionar</option>
+              <option>OSDE</option>
+              <option>Swiss Medical</option>
+              <option>Galeno</option>
+              <option>IOMA</option>
+              <option>Medicus</option>
+              <option>Sancor Salud</option>
+              <option>Particular</option>
+            </select>
+          </div>
+          <div class="form-row" id="credencial-row" style="display:none">
+            <label for="numero_credencial">Número de credencial</label>
+            <input id="numero_credencial" name="numero_credencial" type="text" placeholder="Número de credencial" />
+          </div>
+          <div class="form-row" id="plan-row" style="display:none">
+            <label for="plan">Plan</label>
+            <input id="plan" name="plan" type="text" placeholder="Plan (si aplica)" />
+          </div>
+        </fieldset>
+
         <div class="form-actions">
           <button type="submit" class="btn primary">Solicitar Turno</button>
           <button type="reset" class="btn">Limpiar formulario</button>

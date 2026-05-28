@@ -124,6 +124,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
+    // Cobertura show/hide credential and plan
+    const coberturaEl = document.getElementById('cobertura');
+    const credencialRow = document.getElementById('credencial-row');
+    const planRow = document.getElementById('plan-row');
+    if(coberturaEl){
+      coberturaEl.addEventListener('change', (e)=>{
+        const val = e.target.value;
+        if(val && val.toLowerCase() !== 'particular'){
+          credencialRow.style.display = '';
+          planRow.style.display = '';
+          credencialRow.querySelector('input').setAttribute('required','');
+          planRow.querySelector('input').setAttribute('required','');
+        } else {
+          credencialRow.style.display = 'none';
+          planRow.style.display = 'none';
+          credencialRow.querySelector('input').removeAttribute('required');
+          planRow.querySelector('input').removeAttribute('required');
+        }
+      });
+    }
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const submitBtn = form.querySelector('[type="submit"]');

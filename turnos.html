@@ -26,10 +26,13 @@
     </header>
 
     <main class="container">
-      <h1>Solicitar turno</h1>
-      <p>Completa el formulario y te confirmaremos la disponibilidad.</p>
+      <div class="card">
+        <div class="card-header">
+          <h1>Solicitar turno</h1>
+          <p>Completa el formulario y te confirmaremos la disponibilidad.</p>
+        </div>
 
-      <form id="form-turno" novalidate>
+        <form id="form-turno" novalidate>
         <fieldset>
           <legend>Datos del paciente</legend>
           <div class="form-row">
@@ -166,7 +169,7 @@
               <option>Otro</option>
             </select>
           </div>
-          <div class="form-row">
+          <div class="form-row full-width">
             <label for="motivo">Motivo de consulta</label>
             <textarea id="motivo" name="motivo" rows="4" placeholder="Describa brevemente el motivo de la consulta" required></textarea>
           </div>
@@ -175,7 +178,7 @@
               <input id="estudios_previos" name="estudios_previos" type="checkbox" /> Tiene estudios previos relacionados con la consulta
             </label>
           </div>
-          <div class="form-row" id="estudios-row" style="display:none">
+          <div class="form-row full-width" id="estudios-row" style="display:none">
             <label for="descripcion_estudios">Descripción de estudios</label>
             <textarea id="descripcion_estudios" name="descripcion_estudios" rows="3" placeholder="Describa los estudios (fechas, lugar, resultados)"></textarea>
           </div>
@@ -187,7 +190,8 @@
           <a class="btn" href="index.html">Volver</a>
         </div>
         <p class="form-status" aria-live="polite"></p>
-      </form>
+        </form>
+      </div>
     </main>
 
     <footer class="site-footer">

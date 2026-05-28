@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="SaludPlus - Atención médica en diversas especialidades. Solicita turnos online de forma rápida y segura." />
+		<title>SaludPlus - Consultorio Médico</title>
+		<link rel="stylesheet" href="style.css" />
+		<script defer src="script.js"></script>
+	</head>
+	<body>
+		<a class="skip-link" href="#main">Saltar al contenido</a>
+
+		<header class="site-header">
+			<div class="container header-inner">
+				<a class="logo" href="#">SaludPlus</a>
+				<button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Abrir menú">☰</button>
+				<nav id="primary-navigation" class="primary-nav" aria-label="Navegación principal">
+					<ul>
+						<li><a href="#servicios">Servicios</a></li>
+						<li><a href="#equipo">Equipo</a></li>
+						<li><a href="#turnos" id="open-turno">Solicitar turno</a></li>
+						<li><a href="#contacto">Contacto</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main id="main">
+			<section class="hero">
+				<div class="container hero-inner">
+					<div class="hero-copy">
+						<h1>SaludPlus</h1>
+						<p>Atención integral en medicina general y especialidades. Turnos rápidos y atención humana.</p>
+						<p><a class="btn primary" id="hero-turno">Solicitar turno ahora</a></p>
+					</div>
+					<div class="hero-visual" aria-hidden="true"></div>
+				</div>
+			</section>
+
+			<section id="servicios" class="servicios container">
+				<h2>Especialidades</h2>
+				<div class="grid servicios-grid">
+					<article class="card">
+						<h3>Medicina General</h3>
+						<p>Controles, prevención y diagnóstico para toda la familia.</p>
+					</article>
+					<article class="card">
+						<h3>Pediatría</h3>
+						<p>Cuidado especializado para niños y adolescentes.</p>
+					</article>
+					<article class="card">
+						<h3>Cardiología</h3>
+						<p>Evaluación y tratamiento de enfermedades cardiovasculares.</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="equipo" class="equipo container">
+				<h2>Nuestro equipo</h2>
+				<div class="grid equipo-grid">
+					<article class="profile">
+						<div class="avatar" aria-hidden="true"></div>
+						<h3>Dr. Ana López</h3>
+						<p>Pediatría</p>
+					</article>
+					<article class="profile">
+						<div class="avatar" aria-hidden="true"></div>
+						<h3>Dr. Carlos Ruiz</h3>
+						<p>Cardiología</p>
+					</article>
+					<article class="profile">
+						<div class="avatar" aria-hidden="true"></div>
+						<h3>Dra. Marta Gómez</h3>
+						<p>Medicina General</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="testimonios" class="testimonios container">
+				<h2>Testimonios</h2>
+				<blockquote>
+					"Excelente atención y turnos rápidos. Muy conforme con el servicio."
+					<cite>— Laura M.</cite>
+				</blockquote>
+			</section>
+
+			<section id="contacto" class="contacto container">
+				<h2>Contacto</h2>
+				<p>Teléfono: <a href="tel:+541112345678">+54 11 1234 5678</a> · Email: <a href="mailto:info@saludplus.example">info@saludplus.example</a></p>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="container footer-inner">
+				<p>© <span id="year"></span> SaludPlus — Consultorio médico</p>
+			</div>
+		</footer>
+
+		<!-- Modal: Solicitar turno -->
+		<div class="modal" id="modal-turno" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+			<div class="modal-content">
+				<button class="modal-close" aria-label="Cerrar">✕</button>
+				<h3 id="modal-title">Solicitar turno</h3>
+				<form id="form-turno" novalidate>
+					<label>Nombre completo<input name="nombre" type="text" required /></label>
+					<label>Teléfono<input name="telefono" type="tel" required /></label>
+					<label>Email<input name="email" type="email" required /></label>
+					<label>Especialidad
+						<select name="especialidad" required>
+							<option value="">Seleccionar</option>
+							<option>Medicina General</option>
+							<option>Pediatría</option>
+							<option>Cardiología</option>
+						</select>
+					</label>
+					<label>Fecha<input name="fecha" type="date" required /></label>
+					<label>Hora<input name="hora" type="time" required /></label>
+					<label>Comentario<textarea name="comentario" rows="3"></textarea></label>
+					<div class="form-actions">
+						<button type="submit" class="btn primary">Enviar solicitud</button>
+						<button type="button" class="btn" id="cancel-turno">Cancelar</button>
+					</div>
+					<p class="form-status" aria-live="polite"></p>
+				</form>
+			</div>
+		</div>
+
+	</body>
+</html>
+

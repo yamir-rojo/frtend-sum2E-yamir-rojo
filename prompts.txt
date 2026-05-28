@@ -1,0 +1,8 @@
+Actúa como desarrollador senior de frontend, Utilizaremos para esta página HTML5 semantico, CSS moderno y JavaScript puro (sin frameworks ni librerias externas)., el contexto de ésta página será un consultorio médico que ofrece atención en distintas especialidades, y se llamará SaludPlus, buscaremos modernizar la presencia digital con un sitio web que muestre sus servicios, el equipo médico y permita a los pacientes solicitar turnos en linea de forma sencilla y rápida,  construiremos esta página web por secciones para obtener menos errores
+
+Restricciones tecnicas:
+- Solo HTML5, CSS3 y JavaScript vanilla (sin jQuery, Bootstrap ni frameworks).
+- No usar estilos inline ni etiquetas <font> o <center>.
+- El sitio debe ser visualmente prolijo, coherente y responsive en las secciones indicadas
+
+hagamos esto por etapas

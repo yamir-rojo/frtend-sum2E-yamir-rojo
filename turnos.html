@@ -28,25 +28,49 @@
       <p>Completa el formulario y te confirmaremos la disponibilidad.</p>
 
       <form id="form-turno" novalidate>
-        <label>Nombre completo<input name="nombre" type="text" required /></label>
-        <label>Teléfono<input name="telefono" type="tel" required /></label>
-        <label>Email<input name="email" type="email" required /></label>
-        <label>Especialidad
-          <select name="especialidad" required>
-            <option value="">Seleccionar</option>
-            <option>Clínica General</option>
-            <option>Cardiología</option>
-            <option>Pediatría</option>
-            <option>Ginecología</option>
-            <option>Traumatología</option>
-            <option>Neurología</option>
-          </select>
-        </label>
-        <label>Fecha<input name="fecha" type="date" required /></label>
-        <label>Hora<input name="hora" type="time" required /></label>
-        <label>Comentario<textarea name="comentario" rows="4"></textarea></label>
+        <fieldset>
+          <legend>Datos del paciente</legend>
+          <div class="form-row">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Nombre" required />
+          </div>
+          <div class="form-row">
+            <label for="apellido">Apellido</label>
+            <input id="apellido" name="apellido" type="text" placeholder="Apellido" required />
+          </div>
+          <div class="form-row">
+            <label for="dni">DNI</label>
+            <input id="dni" name="dni" type="text" placeholder="DNI" required />
+          </div>
+          <div class="form-row">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" placeholder="nombre@ejemplo.com" required />
+          </div>
+          <div class="form-row">
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" placeholder="+54 9 11 1234 5678" required />
+          </div>
+          <div class="form-row">
+            <label for="nacimiento">Fecha de nacimiento</label>
+            <input id="nacimiento" name="nacimiento" type="date" required />
+          </div>
+          <div class="form-row">
+            <label for="genero">Género</label>
+            <select id="genero" name="genero" required>
+              <option value="">Seleccionar</option>
+              <option>Masculino</option>
+              <option>Femenino</option>
+              <option>Otro</option>
+              <option>Prefiero no especificar</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <!-- Secciones restantes se añadirán en commits siguientes -->
+
         <div class="form-actions">
-          <button type="submit" class="btn primary">Enviar solicitud</button>
+          <button type="submit" class="btn primary">Solicitar Turno</button>
+          <button type="reset" class="btn">Limpiar formulario</button>
           <a class="btn" href="index.html">Volver</a>
         </div>
         <p class="form-status" aria-live="polite"></p>

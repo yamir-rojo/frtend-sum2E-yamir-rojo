@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Solicitar Turno — SaludPlus</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">SaludPlus</a>
+        <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Abrir menú">☰</button>
+        <nav id="primary-navigation" class="primary-nav" aria-label="Navegación principal">
+          <ul>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#equipo">Equipo</a></li>
+            <li><a href="turnos.html">Solicitar turno</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1>Solicitar turno</h1>
+      <p>Completa el formulario y te confirmaremos la disponibilidad.</p>
+
+      <form id="form-turno" novalidate>
+        <label>Nombre completo<input name="nombre" type="text" required /></label>
+        <label>Teléfono<input name="telefono" type="tel" required /></label>
+        <label>Email<input name="email" type="email" required /></label>
+        <label>Especialidad
+          <select name="especialidad" required>
+            <option value="">Seleccionar</option>
+            <option>Clínica General</option>
+            <option>Cardiología</option>
+            <option>Pediatría</option>
+            <option>Ginecología</option>
+            <option>Traumatología</option>
+            <option>Neurología</option>
+          </select>
+        </label>
+        <label>Fecha<input name="fecha" type="date" required /></label>
+        <label>Hora<input name="hora" type="time" required /></label>
+        <label>Comentario<textarea name="comentario" rows="4"></textarea></label>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Enviar solicitud</button>
+          <a class="btn" href="index.html">Volver</a>
+        </div>
+        <p class="form-status" aria-live="polite"></p>
+      </form>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> SaludPlus — Consultorio médico</p>
+      </div>
+    </footer>
+  </body>
+</html>

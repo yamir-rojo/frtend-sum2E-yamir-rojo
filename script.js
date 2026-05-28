@@ -15,52 +15,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Modal de turnos
-  const modal = document.getElementById('modal-turno');
-  const openBtns = [document.getElementById('open-turno'), document.getElementById('hero-turno')];
-  const closeBtn = modal?.querySelector('.modal-close');
-  const cancelBtn = document.getElementById('cancel-turno');
+  // Form submit (turnos page)
   const form = document.getElementById('form-turno');
-  const status = modal?.querySelector('.form-status');
-
-  function openModal(){
-    if(!modal) return;
-    modal.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-    const firstInput = modal.querySelector('input,select,textarea,button');
-    if(firstInput) firstInput.focus();
-  }
-  function closeModal(){
-    if(!modal) return;
-    modal.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  }
-
-  openBtns.forEach(btn=>{ if(btn) btn.addEventListener('click', (e)=>{ e.preventDefault(); openModal(); }) });
-  if(closeBtn) closeBtn.addEventListener('click', closeModal);
-  if(cancelBtn) cancelBtn.addEventListener('click', closeModal);
-
-  // Cerrar con Escape
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
-
-  // Form submit (simulado)
-  if(form){
-    form.addEventListener('submit', (e)=>{
+  const status = form?.querySelector('.form-status');
+  if (form) {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      if(!form.checkValidity()){
-        status.textContent = 'Por favor completa los campos requeridos.';
+      if (!form.checkValidity()) {
+        if (status) status.textContent = 'Por favor completa los campos requeridos.';
         return;
       }
-      status.textContent = 'Enviando solicitud...';
+      if (status) status.textContent = 'Enviando solicitud...';
       const data = new FormData(form);
       const payload = Object.fromEntries(data.entries());
-      // Simular envío
-      setTimeout(()=>{
-        status.textContent = 'Solicitud enviada. Nos comunicaremos pronto.';
+      // Aquí iría la llamada real a la API
+      setTimeout(() => {
+        if (status) status.textContent = 'Solicitud enviada. Nos comunicaremos pronto.';
         form.reset();
-        setTimeout(closeModal,1200);
         console.log('Turno solicitado:', payload);
-      },900);
+      }, 900);
     });
   }
 });

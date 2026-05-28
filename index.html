@@ -19,7 +19,7 @@
 					<ul>
 						<li><a href="#servicios">Servicios</a></li>
 						<li><a href="#equipo">Equipo</a></li>
-						<li><a href="#turnos" id="open-turno">Solicitar turno</a></li>
+						<li><a href="turnos.html">Solicitar turno</a></li>
 						<li><a href="#contacto">Contacto</a></li>
 					</ul>
 				</nav>
@@ -32,7 +32,7 @@
 					<div class="hero-copy">
 						<h1>SaludPlus</h1>
 						<p>Atención integral en medicina general y especialidades. Turnos rápidos y atención humana.</p>
-						<p><a class="btn primary" id="hero-turno">Solicitar turno ahora</a></p>
+						<p><a class="btn primary" href="turnos.html">Solicitar turno ahora</a></p>
 					</div>
 					<div class="hero-visual" aria-hidden="true">
 						<img src="images/doctor%204.jpg" alt="Equipo médico" />
@@ -43,18 +43,65 @@
 			<section id="servicios" class="servicios container">
 				<h2>Especialidades</h2>
 				<div class="grid servicios-grid">
-					<article class="card">
-						<h3>Medicina General</h3>
-						<p>Controles, prevención y diagnóstico para toda la familia.</p>
+					<article class="card servicio">
+						<div class="icon" aria-hidden="true">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v10" stroke="#0B74DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 8h12" stroke="#0B74DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+						</div>
+						<h3>Clínica General</h3>
+						<p>Atención primaria para diagnóstico y seguimiento de patologías frecuentes.</p>
 					</article>
-					<article class="card">
-						<h3>Pediatría</h3>
-						<p>Cuidado especializado para niños y adolescentes.</p>
-					</article>
-					<article class="card">
+					<article class="card servicio">
+						<div class="icon" aria-hidden="true">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7" r="3" stroke="#0B74DA" stroke-width="1.5"/><path d="M5 21c2.5-4 6.5-6 11-6s8.5 2 11 6" stroke="#0B74DA" stroke-width="1.5"/></svg>
+						</div>
 						<h3>Cardiología</h3>
-						<p>Evaluación y tratamiento de enfermedades cardiovasculares.</p>
+						<p>Diagnóstico y tratamiento de enfermedades del corazón y el sistema circulatorio.</p>
 					</article>
+					<article class="card servicio">
+						<div class="icon" aria-hidden="true">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M12 2v10" stroke="#0B74DA" stroke-width="1.5"/><path d="M5 22v-6a7 7 0 0114 0v6" stroke="#0B74DA" stroke-width="1.5"/></svg>
+						</div>
+						<h3>Pediatría</h3>
+						<p>Cuidado integral y seguimiento del desarrollo infantil.</p>
+					</article>
+					<article class="card servicio">
+						<div class="icon" aria-hidden="true">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M12 2c2.5 0 4 2 4 4v6" stroke="#0B74DA" stroke-width="1.5"/><path d="M6 8v10h12V8" stroke="#0B74DA" stroke-width="1.5"/></svg>
+						</div>
+						<h3>Ginecología</h3>
+						<p>Atención para salud reproductiva y control ginecológico.</p>
+					</article>
+					<article class="card servicio">
+						<div class="icon" aria-hidden="true">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#0B74DA" stroke-width="1.5"/><path d="M12 3v18" stroke="#0B74DA" stroke-width="1.5"/></svg>
+						</div>
+						<h3>Traumatología</h3>
+						<p>Tratamiento de lesiones musculoesqueléticas y rehabilitación.</p>
+					</article>
+					<article class="card servicio">
+						<div class="icon" aria-hidden="true">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M12 2c3 0 5 2 5 5v6" stroke="#0B74DA" stroke-width="1.5"/><path d="M7 7v10" stroke="#0B74DA" stroke-width="1.5"/></svg>
+						</div>
+						<h3>Neurología</h3>
+						<p>Diagnóstico y manejo de enfermedades del sistema nervioso.</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="highlights container" aria-label="Datos destacados">
+				<div class="grid highlights-grid">
+					<div class="highlight card">
+						<h3>6+</h3>
+						<p>Especialidades disponibles</p>
+					</div>
+					<div class="highlight card">
+						<h3>15+</h3>
+						<p>Años de experiencia combinada</p>
+					</div>
+					<div class="highlight card">
+						<h3>12.000+</h3>
+						<p>Pacientes atendidos</p>
+					</div>
 				</div>
 			</section>
 
@@ -64,17 +111,20 @@
 					<article class="profile">
 						<img class="avatar" src="images/doctor%201.jpg" alt="Dr. Ana López" />
 						<h3>Dr. Ana López</h3>
-						<p>Pediatría</p>
+						<p class="specialidad">Pediatría</p>
+						<p class="bio">Especialista en crecimiento infantil y control del desarrollo con enfoque en prevención.</p>
 					</article>
 					<article class="profile">
 						<img class="avatar" src="images/doctor%202.jpg" alt="Dr. Carlos Ruiz" />
 						<h3>Dr. Carlos Ruiz</h3>
-						<p>Cardiología</p>
+						<p class="specialidad">Cardiología</p>
+						<p class="bio">Experto en cardiología preventiva y rehabilitación cardiovascular.</p>
 					</article>
 					<article class="profile">
 						<img class="avatar" src="images/doctor%203.jpg" alt="Dra. Marta Gómez" />
 						<h3>Dra. Marta Gómez</h3>
-						<p>Medicina General</p>
+						<p class="specialidad">Medicina General</p>
+						<p class="bio">Atención integral para toda la familia, con énfasis en controles y salud preventiva.</p>
 					</article>
 				</div>
 			</section>
@@ -99,34 +149,7 @@
 			</div>
 		</footer>
 
-		<!-- Modal: Solicitar turno -->
-		<div class="modal" id="modal-turno" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-			<div class="modal-content">
-				<button class="modal-close" aria-label="Cerrar">✕</button>
-				<h3 id="modal-title">Solicitar turno</h3>
-				<form id="form-turno" novalidate>
-					<label>Nombre completo<input name="nombre" type="text" required /></label>
-					<label>Teléfono<input name="telefono" type="tel" required /></label>
-					<label>Email<input name="email" type="email" required /></label>
-					<label>Especialidad
-						<select name="especialidad" required>
-							<option value="">Seleccionar</option>
-							<option>Medicina General</option>
-							<option>Pediatría</option>
-							<option>Cardiología</option>
-						</select>
-					</label>
-					<label>Fecha<input name="fecha" type="date" required /></label>
-					<label>Hora<input name="hora" type="time" required /></label>
-					<label>Comentario<textarea name="comentario" rows="3"></textarea></label>
-					<div class="form-actions">
-						<button type="submit" class="btn primary">Enviar solicitud</button>
-						<button type="button" class="btn" id="cancel-turno">Cancelar</button>
-					</div>
-					<p class="form-status" aria-live="polite"></p>
-				</form>
-			</div>
-		</div>
+		<!-- Turnos ahora en página separada: turnos.html -->
 
 	</body>
 </html>

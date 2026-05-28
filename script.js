@@ -55,11 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = new FormData(formEl);
     const errors = [];
     const nombre = data.get('nombre')?.toString().trim() || '';
+    const apellido = data.get('apellido')?.toString().trim() || '';
+    const dni = data.get('dni')?.toString().trim() || '';
     const telefono = data.get('telefono')?.toString().trim() || '';
     const email = data.get('email')?.toString().trim() || '';
     const especialidad = data.get('especialidad')?.toString().trim() || '';
-    const fecha = data.get('fecha')?.toString().trim() || '';
-    const hora = data.get('hora')?.toString().trim() || '';
+    const medico = data.get('medico')?.toString().trim() || '';
+    const fecha = data.get('fecha_turno')?.toString().trim() || '';
+    const hora = data.get('hora_turno')?.toString().trim() || '';
 
     if(nombre.length < 3) { errors.push('nombre'); showFieldError(formEl.querySelector('[name="nombre"]'), 'Ingresa al menos 3 caracteres.'); }
     const phoneClean = telefono.replace(/[^0-9+]/g,'');
@@ -67,17 +70,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!emailRe.test(email)) { errors.push('email'); showFieldError(formEl.querySelector('[name="email"]'), 'Ingresa un email válido.'); }
     if(!especialidad) { errors.push('especialidad'); showFieldError(formEl.querySelector('[name="especialidad"]'), 'Seleccione una especialidad.'); }
+    if(!medico) { errors.push('medico'); showFieldError(formEl.querySelector('[name="medico"]'), 'Seleccione un médico.'); }
     if(fecha){
       const selected = new Date(fecha);
       const today = new Date(); today.setHours(0,0,0,0);
-      if(selected < today){ errors.push('fecha'); showFieldError(formEl.querySelector('[name="fecha"]'), 'La fecha no puede ser anterior a hoy.'); }
-    } else { errors.push('fecha'); showFieldError(formEl.querySelector('[name="fecha"]'), 'Seleccione una fecha.'); }
-    if(!hora){ errors.push('hora'); showFieldError(formEl.querySelector('[name="hora"]'), 'Seleccione una hora.'); }
+      if(selected < today){ errors.push('fecha'); showFieldError(formEl.querySelector('[name="fecha_turno"]'), 'La fecha no puede ser anterior a hoy.'); }
+    } else { errors.push('fecha'); showFieldError(formEl.querySelector('[name="fecha_turno"]'), 'Seleccione una fecha.'); }
+    if(!hora){ errors.push('hora'); showFieldError(formEl.querySelector('[name="hora_turno"]'), 'Seleccione una hora.'); }
 
     return { ok: errors.length === 0, data: Object.fromEntries(data.entries()) };
   }
 
   if(form){
+    // Dynamic medicos list based on especialidad
+    const medicosMap = {
+      'Clinica General': ['Dr. Juan Pérez','Dra. Laura Sánchez'],
+      'Cardiologia': ['Dr. Carlos Ruiz','Dra. Sofia Martín'],
+      'Pediatria': ['Dra. Ana López','Dr. Pedro Gómez'],
+      'Ginecologia': ['Dra. Marta Gómez','Dra. Lucía Ramírez'],
+      'Traumatologia': ['Dr. Diego Torres','Dr. Raúl Méndez'],
+      'Neurologia': ['Dra. Valeria Ortiz','Dr. Sergio Díaz']
+    };
+    const especialidadEl = document.getElementById('especialidad');
+    const medicoEl = document.getElementById('medico');
+    const modalidadEl = document.getElementById('modalidad');
+    const plataformaRow = document.getElementById('plataforma-row');
+
+    if(especialidadEl && medicoEl){
+      especialidadEl.addEventListener('change', (e)=>{
+        const val = e.target.value;
+        medicoEl.innerHTML = '';
+        if(!val){
+          medicoEl.disabled = true;
+          medicoEl.appendChild(new Option('Seleccione especialidad primero',''));
+          return;
+        }
+        const list = medicosMap[val] || [];
+        medicoEl.disabled = false;
+        medicoEl.appendChild(new Option('Seleccionar médico',''));
+        list.forEach(name=> medicoEl.appendChild(new Option(name,name)));
+      });
+    }
+
+    if(modalidadEl && plataformaRow){
+      modalidadEl.addEventListener('change', (e)=>{
+        const val = e.target.value;
+        if(val === 'Videoconsulta'){
+          plataformaRow.style.display = '';
+          plataformaRow.querySelector('select').setAttribute('required','');
+        } else {
+          plataformaRow.style.display = 'none';
+          plataformaRow.querySelector('select').removeAttribute('required');
+        }
+      });
+    }
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const submitBtn = form.querySelector('[type="submit"]');

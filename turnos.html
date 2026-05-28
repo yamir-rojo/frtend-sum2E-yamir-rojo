@@ -66,7 +66,61 @@
           </div>
         </fieldset>
 
-        <!-- Secciones restantes se añadirán en commits siguientes -->
+        <fieldset>
+          <legend>Datos del turno</legend>
+          <div class="form-row">
+            <label for="especialidad">Especialidad</label>
+            <select id="especialidad" name="especialidad" required>
+              <option value="">Seleccionar</option>
+              <option value="Clinica General">Clínica General</option>
+              <option value="Cardiologia">Cardiología</option>
+              <option value="Pediatria">Pediatría</option>
+              <option value="Ginecologia">Ginecología</option>
+              <option value="Traumatologia">Traumatología</option>
+              <option value="Neurologia">Neurología</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="medico">Médico</label>
+            <select id="medico" name="medico" disabled required>
+              <option value="">Seleccione especialidad primero</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="tipo_consulta">Tipo de consulta</label>
+            <select id="tipo_consulta" name="tipo_consulta" required>
+              <option value="">Seleccionar</option>
+              <option>Primera consulta</option>
+              <option>Control</option>
+              <option>Resultado de estudios</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="fecha_turno">Fecha del turno</label>
+            <input id="fecha_turno" name="fecha_turno" type="date" required />
+          </div>
+          <div class="form-row">
+            <label for="hora_turno">Hora del turno</label>
+            <input id="hora_turno" name="hora_turno" type="time" required />
+          </div>
+          <div class="form-row">
+            <label for="modalidad">Modalidad</label>
+            <select id="modalidad" name="modalidad" required>
+              <option value="">Seleccionar</option>
+              <option value="Presencial">Presencial</option>
+              <option value="Videoconsulta">Videoconsulta</option>
+            </select>
+          </div>
+          <div class="form-row" id="plataforma-row" style="display:none">
+            <label for="plataforma">Plataforma preferida</label>
+            <select id="plataforma" name="plataforma">
+              <option value="">Seleccionar</option>
+              <option>Zoom</option>
+              <option>Google Meet</option>
+              <option>Teams</option>
+            </select>
+          </div>
+        </fieldset>
 
         <div class="form-actions">
           <button type="submit" class="btn primary">Solicitar Turno</button>
